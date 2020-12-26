@@ -1,0 +1,414 @@
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePharmacies (20201226190719)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "pharmacies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201226190719"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateHospitals (20201226191708)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "hospitals" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201226191708"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePatients (20201226193613)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "gender" varchar, "pharmacy_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201226193613"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDoctors (20201226193941)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "specialty_id" integer NOT NULL, "pharmacy_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ef7f4d48f9"
+FOREIGN KEY ("specialty_id")
+  REFERENCES "specialties" ("id")
+, CONSTRAINT "fk_rails_600c25f1a0"
+FOREIGN KEY ("pharmacy_id")
+  REFERENCES "pharmacies" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_doctors_on_specialty_id" ON "doctors" ("specialty_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_doctors_on_pharmacy_id" ON "doctors" ("pharmacy_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201226193941"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSpecialties (20201226194020)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "specialties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201226194020"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAppointments (20201226194108)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "doctor_id" integer NOT NULL, "patient_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8db8e1e8a5"
+FOREIGN KEY ("doctor_id")
+  REFERENCES "doctors" ("id")
+, CONSTRAINT "fk_rails_c63da04ab4"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_appointments_on_patient_id" ON "appointments" ("patient_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201226194108"]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-26 20:04:23.978012"], ["updated_at", "2020-12-26 20:04:23.978012"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[36mHospital Load (0.4ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[36mHospital Load (0.7ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals"[0m
+  [1m[36mPharmacy Load (0.8ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mDoctor Load (0.5ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (1.0ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "San Francisco General Hospital"], ["created_at", "2020-12-26 20:06:46.938422"], ["updated_at", "2020-12-26 20:06:46.938422"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.4ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harborview Medical Center"], ["created_at", "2020-12-26 20:06:46.943078"], ["updated_at", "2020-12-26 20:06:46.943078"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.3ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "University of California San Francisco, Parnassus Hospital"], ["created_at", "2020-12-26 20:06:46.946560"], ["updated_at", "2020-12-26 20:06:46.946560"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.3ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "University of Washington Medical Center"], ["created_at", "2020-12-26 20:06:46.949679"], ["updated_at", "2020-12-26 20:06:46.949679"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.3ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Swedish First Hill Hospital"], ["created_at", "2020-12-26 20:06:46.957462"], ["updated_at", "2020-12-26 20:06:46.957462"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.4ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Walgreens on 5th"], ["created_at", "2020-12-26 20:06:46.971769"], ["updated_at", "2020-12-26 20:06:46.971769"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.5ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "CVS Downtown"], ["created_at", "2020-12-26 20:06:46.980920"], ["updated_at", "2020-12-26 20:06:46.980920"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Safeway by the park"], ["created_at", "2020-12-26 20:06:46.990296"], ["updated_at", "2020-12-26 20:06:46.990296"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rite Aide near the school"], ["created_at", "2020-12-26 20:06:46.996941"], ["updated_at", "2020-12-26 20:06:46.996941"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Walgreens on Main St."], ["created_at", "2020-12-26 20:06:47.013862"], ["updated_at", "2020-12-26 20:06:47.013862"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Emergency Medicine"], ["created_at", "2020-12-26 20:06:47.020560"], ["updated_at", "2020-12-26 20:06:47.020560"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Primary Care Doctor"], ["created_at", "2020-12-26 20:06:47.024655"], ["updated_at", "2020-12-26 20:06:47.024655"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gastroenterologist"], ["created_at", "2020-12-26 20:06:47.028364"], ["updated_at", "2020-12-26 20:06:47.028364"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gyenocology"], ["created_at", "2020-12-26 20:06:47.031606"], ["updated_at", "2020-12-26 20:06:47.031606"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pulmonologist"], ["created_at", "2020-12-26 20:06:47.035180"], ["updated_at", "2020-12-26 20:06:47.035180"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.4ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Infectious Disease"], ["created_at", "2020-12-26 20:06:47.038815"], ["updated_at", "2020-12-26 20:06:47.038815"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Opthomologist"], ["created_at", "2020-12-26 20:06:47.042650"], ["updated_at", "2020-12-26 20:06:47.042650"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nephrologist"], ["created_at", "2020-12-26 20:06:47.046303"], ["updated_at", "2020-12-26 20:06:47.046303"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.4ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Neurologist"], ["created_at", "2020-12-26 20:06:47.050185"], ["updated_at", "2020-12-26 20:06:47.050185"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cardiologist"], ["created_at", "2020-12-26 20:06:47.053567"], ["updated_at", "2020-12-26 20:06:47.053567"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAgeToDoctors (20201226200846)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "doctors" ADD "age" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201226200846"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Destroy (0.4ms)[0m  [1m[31mDELETE FROM "hospitals" WHERE "hospitals"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Destroy (0.2ms)[0m  [1m[31mDELETE FROM "hospitals" WHERE "hospitals"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Destroy (0.3ms)[0m  [1m[31mDELETE FROM "hospitals" WHERE "hospitals"."id" = ?[0m  [["id", 3]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Destroy (0.3ms)[0m  [1m[31mDELETE FROM "hospitals" WHERE "hospitals"."id" = ?[0m  [["id", 4]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Destroy (0.3ms)[0m  [1m[31mDELETE FROM "hospitals" WHERE "hospitals"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Destroy (0.5ms)[0m  [1m[31mDELETE FROM "pharmacies" WHERE "pharmacies"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pharmacies" WHERE "pharmacies"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Destroy (0.2ms)[0m  [1m[31mDELETE FROM "pharmacies" WHERE "pharmacies"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pharmacies" WHERE "pharmacies"."id" = ?[0m  [["id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Destroy (0.5ms)[0m  [1m[31mDELETE FROM "pharmacies" WHERE "pharmacies"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.3ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.7ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.4ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.2ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 7]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 9]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "specialties" WHERE "specialties"."id" = ?[0m  [["id", 10]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.4ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "San Francisco General Hospital"], ["created_at", "2020-12-26 20:09:53.305467"], ["updated_at", "2020-12-26 20:09:53.305467"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.3ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Harborview Medical Center"], ["created_at", "2020-12-26 20:09:53.309227"], ["updated_at", "2020-12-26 20:09:53.309227"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.3ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "University of California San Francisco, Parnassus Hospital"], ["created_at", "2020-12-26 20:09:53.312398"], ["updated_at", "2020-12-26 20:09:53.312398"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.3ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "University of Washington Medical Center"], ["created_at", "2020-12-26 20:09:53.315252"], ["updated_at", "2020-12-26 20:09:53.315252"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHospital Create (0.3ms)[0m  [1m[32mINSERT INTO "hospitals" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Swedish First Hill Hospital"], ["created_at", "2020-12-26 20:09:53.318382"], ["updated_at", "2020-12-26 20:09:53.318382"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Walgreens on 5th"], ["created_at", "2020-12-26 20:09:53.321398"], ["updated_at", "2020-12-26 20:09:53.321398"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "CVS Downtown"], ["created_at", "2020-12-26 20:09:53.324496"], ["updated_at", "2020-12-26 20:09:53.324496"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Safeway by the park"], ["created_at", "2020-12-26 20:09:53.327835"], ["updated_at", "2020-12-26 20:09:53.327835"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rite Aide near the school"], ["created_at", "2020-12-26 20:09:53.331999"], ["updated_at", "2020-12-26 20:09:53.331999"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPharmacy Create (0.3ms)[0m  [1m[32mINSERT INTO "pharmacies" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Walgreens on Main St."], ["created_at", "2020-12-26 20:09:53.336138"], ["updated_at", "2020-12-26 20:09:53.336138"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Emergency Medicine"], ["created_at", "2020-12-26 20:09:53.339678"], ["updated_at", "2020-12-26 20:09:53.339678"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Primary Care Doctor"], ["created_at", "2020-12-26 20:09:53.343042"], ["updated_at", "2020-12-26 20:09:53.343042"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gastroenterologist"], ["created_at", "2020-12-26 20:09:53.346194"], ["updated_at", "2020-12-26 20:09:53.346194"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gyenocology"], ["created_at", "2020-12-26 20:09:53.349403"], ["updated_at", "2020-12-26 20:09:53.349403"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pulmonologist"], ["created_at", "2020-12-26 20:09:53.352719"], ["updated_at", "2020-12-26 20:09:53.352719"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Infectious Disease"], ["created_at", "2020-12-26 20:09:53.356078"], ["updated_at", "2020-12-26 20:09:53.356078"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Opthomologist"], ["created_at", "2020-12-26 20:09:53.359379"], ["updated_at", "2020-12-26 20:09:53.359379"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nephrologist"], ["created_at", "2020-12-26 20:09:53.363158"], ["updated_at", "2020-12-26 20:09:53.363158"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.4ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Neurologist"], ["created_at", "2020-12-26 20:09:53.366944"], ["updated_at", "2020-12-26 20:09:53.366944"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Create (0.3ms)[0m  [1m[32mINSERT INTO "specialties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cardiologist"], ["created_at", "2020-12-26 20:09:53.373184"], ["updated_at", "2020-12-26 20:09:53.373184"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Lasonya Grady"], ["specialty_id", 20], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.638442"], ["updated_at", "2020-12-26 20:09:53.638442"], ["age", 43]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jed Ullrich III"], ["specialty_id", 18], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.647275"], ["updated_at", "2020-12-26 20:09:53.647275"], ["age", 48]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dario Hamill"], ["specialty_id", 17], ["pharmacy_id", 9], ["created_at", "2020-12-26 20:09:53.655732"], ["updated_at", "2020-12-26 20:09:53.655732"], ["age", 49]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dirk Schulist"], ["specialty_id", 11], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.664612"], ["updated_at", "2020-12-26 20:09:53.664612"], ["age", 37]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Sarah O'Connell VM"], ["specialty_id", 15], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.672006"], ["updated_at", "2020-12-26 20:09:53.672006"], ["age", 39]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Aletha Runolfsson PhD"], ["specialty_id", 13], ["pharmacy_id", 9], ["created_at", "2020-12-26 20:09:53.679380"], ["updated_at", "2020-12-26 20:09:53.679380"], ["age", 44]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Katia Haag"], ["specialty_id", 11], ["pharmacy_id", 10], ["created_at", "2020-12-26 20:09:53.687221"], ["updated_at", "2020-12-26 20:09:53.687221"], ["age", 48]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Kerry Upton"], ["specialty_id", 15], ["pharmacy_id", 6], ["created_at", "2020-12-26 20:09:53.695223"], ["updated_at", "2020-12-26 20:09:53.695223"], ["age", 34]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Meg Gerlach"], ["specialty_id", 14], ["pharmacy_id", 8], ["created_at", "2020-12-26 20:09:53.703318"], ["updated_at", "2020-12-26 20:09:53.703318"], ["age", 49]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bradly Kuhn"], ["specialty_id", 11], ["pharmacy_id", 6], ["created_at", "2020-12-26 20:09:53.710909"], ["updated_at", "2020-12-26 20:09:53.710909"], ["age", 34]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fr. Mimi Fadel"], ["specialty_id", 16], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.717955"], ["updated_at", "2020-12-26 20:09:53.717955"], ["age", 32]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bernard Bernier"], ["specialty_id", 15], ["pharmacy_id", 10], ["created_at", "2020-12-26 20:09:53.724994"], ["updated_at", "2020-12-26 20:09:53.724994"], ["age", 38]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Sparkle Gleason"], ["specialty_id", 20], ["pharmacy_id", 6], ["created_at", "2020-12-26 20:09:53.732218"], ["updated_at", "2020-12-26 20:09:53.732218"], ["age", 35]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Karima Heathcote"], ["specialty_id", 14], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.739621"], ["updated_at", "2020-12-26 20:09:53.739621"], ["age", 39]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stefany Hegmann"], ["specialty_id", 20], ["pharmacy_id", 8], ["created_at", "2020-12-26 20:09:53.748089"], ["updated_at", "2020-12-26 20:09:53.748089"], ["age", 35]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Abdul Senger"], ["specialty_id", 17], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.756537"], ["updated_at", "2020-12-26 20:09:53.756537"], ["age", 54]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Amb. Abdul Shields"], ["specialty_id", 14], ["pharmacy_id", 10], ["created_at", "2020-12-26 20:09:53.775715"], ["updated_at", "2020-12-26 20:09:53.775715"], ["age", 57]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Msgr. Delana Roberts"], ["specialty_id", 16], ["pharmacy_id", 10], ["created_at", "2020-12-26 20:09:53.783959"], ["updated_at", "2020-12-26 20:09:53.783959"], ["age", 46]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jodi Moore"], ["specialty_id", 13], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.791966"], ["updated_at", "2020-12-26 20:09:53.791966"], ["age", 63]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty_id", "pharmacy_id", "created_at", "updated_at", "age") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fr. Mauricio Stokes"], ["specialty_id", 12], ["pharmacy_id", 7], ["created_at", "2020-12-26 20:09:53.799547"], ["updated_at", "2020-12-26 20:09:53.799547"], ["age", 43]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
