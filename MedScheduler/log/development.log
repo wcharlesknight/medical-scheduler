@@ -43676,3 +43676,156 @@ Completed 422 Unprocessable Entity in 12ms (ActiveRecord: 0.7ms | Allocations: 8
 ActiveRecord::RecordInvalid (Validation failed: Datetime must exist):
   
 app/controllers/appointments_controller.rb:18:in `create'
+Started GET "/heroinepowers" for ::1 at 2020-12-26 14:26:14 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/heroinepowers"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/appointments/new" for ::1 at 2020-12-26 14:26:17 -0800
+Processing by AppointmentsController#new as HTML
+  Rendering appointments/new.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/appointments/new.html.erb:4
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/appointments/new.html.erb:5
+  [1m[36mDatetime Load (0.3ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes"[0m
+  ↳ app/views/appointments/new.html.erb:6
+  Rendered appointments/new.html.erb within layouts/application (Duration: 103.0ms | Allocations: 226256)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 150ms (Views: 112.9ms | ActiveRecord: 3.1ms | Allocations: 248590)
+
+
+Started POST "/appointments" for ::1 at 2020-12-26 14:26:21 -0800
+Processing by AppointmentsController#create as JS
+  Parameters: {"authenticity_token"=>"s84Rb4F4vSdgPjK4b7XMdN/mCRfe0k6uzcBXoGx4NIw21vyEeGKWPidHyGNKrE9mDE4+gd/alnX4LMEW9zyLZA==", "appointment"=>{"doctor_id"=>"1", "patient_id"=>"1", "datetime_id"=>"1"}}
+[31mUnpermitted parameter: :datetime_id[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["doctor_id", 1], ["patient_id", 1], ["created_at", "2020-12-26 22:26:21.405180"], ["updated_at", "2020-12-26 22:26:21.405180"]]
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+  [1m[36mAppointment Create (0.6ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["doctor_id", 1], ["patient_id", 1], ["created_at", "2020-12-26 22:26:21.423030"], ["updated_at", "2020-12-26 22:26:21.423030"]]
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+Redirected to http://localhost:3000/doctors/1
+Completed 200 OK in 42ms (ActiveRecord: 6.1ms | Allocations: 15140)
+
+
+Started GET "/doctors/1" for ::1 at 2020-12-26 14:26:21 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mDatetime Load (0.4ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" INNER JOIN "appointments" ON "datetimes"."id" = "appointments"."datetime_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/views/doctors/show.html.erb:7
+  Rendered doctors/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 4620)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.0ms | ActiveRecord: 0.9ms | Allocations: 9997)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mDatetime Load (0.5ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/appointments/new" for ::1 at 2020-12-26 14:30:38 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AppointmentsController#new as HTML
+  Rendering appointments/new.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/appointments/new.html.erb:4
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/appointments/new.html.erb:5
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes"[0m
+  ↳ app/views/appointments/new.html.erb:6
+  Rendered appointments/new.html.erb within layouts/application (Duration: 134.7ms | Allocations: 226458)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 201ms (Views: 155.6ms | ActiveRecord: 2.8ms | Allocations: 249881)
+
+
+Started POST "/appointments" for ::1 at 2020-12-26 14:30:42 -0800
+Processing by AppointmentsController#create as JS
+  Parameters: {"authenticity_token"=>"LiWKm+J5Rz1vepYQU6X2E81H/2uxE04TUyCiPInjEPirPWdwG2NsJCgDbMt2vHUBHu/I/bAblshmzDSKEqevEA==", "appointment"=>{"doctor_id"=>"9", "patient_id"=>"7", "datetime_id"=>"9"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mAppointment Create (0.5ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "patient_id", "created_at", "updated_at", "datetime_id") VALUES (?, ?, ?, ?, ?)[0m  [["doctor_id", 9], ["patient_id", 7], ["created_at", "2020-12-26 22:30:42.919109"], ["updated_at", "2020-12-26 22:30:42.919109"], ["datetime_id", 9]]
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:15:in `create'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+  [1m[36mAppointment Create (1.6ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["doctor_id", 9], ["patient_id", 7], ["created_at", "2020-12-26 22:30:42.929315"], ["updated_at", "2020-12-26 22:30:42.929315"]]
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:18:in `create'
+Redirected to http://localhost:3000/doctors/9
+Completed 200 OK in 29ms (ActiveRecord: 4.7ms | Allocations: 15135)
+
+
+Started GET "/doctors/9" for ::1 at 2020-12-26 14:30:42 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mDoctor Load (0.4ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" INNER JOIN "appointments" ON "datetimes"."id" = "appointments"."datetime_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 9]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 9]]
+  ↳ app/views/doctors/show.html.erb:7
+  Rendered doctors/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 4695)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.8ms | Allocations: 10071)
+
+
