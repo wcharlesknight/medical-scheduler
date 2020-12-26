@@ -40,9 +40,9 @@ Specialty.create(name: "Cardiologist")
 
 
 100.times do
-    Patient.create(name:Faker::Name.name, age:rand(18..95), gender: Faker::Gender.binary_type) 
+    Patient.create(name:Faker::Name.name, age:rand(18..95), gender: Faker::Gender.binary_type, pharmacy_id: Pharmacy.all.sample.id) 
 end
 
 20.times do
-    Doctor.create(name:Faker::Name.name, age:rand(32..65), specialty_id: Specialty.all.sample.id, pharmacy_id: Pharmacy.all.sample.id) 
+    Doctor.create(name:"Dr. #{Faker::Name.name}", age:rand(32..65), specialty_id: Specialty.all.sample.id, pharmacy_id: Pharmacy.all.sample.id) 
 end

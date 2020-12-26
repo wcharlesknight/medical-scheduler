@@ -1,0 +1,5 @@
+<h1><%= form_with model: @appointments do |f| %></h1>
+    <%= f.collection_select :doctor_id, @doctors, :id, :name %>
+    <%= f.collection_select :patient_id, @patients, :id, :name %>
+    <%= f.submit %>
+    <% end %>
