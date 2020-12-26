@@ -1,0 +1,9 @@
+<h1><%= @doctor.name %></h1>
+
+<%= @doctor.datetimes.each do |d| %>
+<p><%= d.date %></p>
+<% end %>
+
+<%= @doctor.appointments.each do |d| %>
+<p><%= d %></p>
+<% end %>
