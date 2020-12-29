@@ -1,9 +1,3 @@
-<% if flash[:errors] %>
-<% flash[:errors].each do |errors| %>
-<p><%= errors %></p>
-<% end %>
-<% end %>
-
 <h1><%= form_with model: @appointments do |f| %></h1>
 
 <%= f.collection_select :doctor_id, @doctors, :id, :name %>

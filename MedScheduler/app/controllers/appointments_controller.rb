@@ -7,6 +7,10 @@ class AppointmentsController < ApplicationController
         @datetimes = Datetime.all
     end
 
+    def edit
+        @appointment = Appointment.find(params[:id])
+    end
+
     def show
         @appointment = Appointment.find(params[:id])
     end
@@ -16,7 +20,12 @@ class AppointmentsController < ApplicationController
         @doctor = Doctor.find(@appointment.doctor_id)
         @doctor.appointments << @appointment
         @doctor.patients << Patient.find(@appointment.patient_id)
+        if @appointment.valid?
         redirect_to doctor_path(@appointment.doctor_id)
+        else 
+            flash[:errors] = @appointment.errors.full_messages
+            redirect_to new_appointment_path
+        end
     end
 
     private
