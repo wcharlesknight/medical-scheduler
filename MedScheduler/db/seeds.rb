@@ -76,5 +76,5 @@ Datetime.create(date: "Friday 1:00PM")
 end
 
 20.times do
-    Doctor.create(name: "Dr. #{Faker::Name.name}", age:rand(32..65), specialty_id: Specialty.all.sample.id, pharmacy_id: Pharmacy.all.sample.id) 
+    Doctor.create(name: "Dr. #{Faker::Name.name}", age:rand(32..65), specialty_id: Specialty.all.sample.id, pharmacy_id: Pharmacy.all.sample.id, rating: rand(1..10), hospital_id: Hospital.all.sample.id)
 end
