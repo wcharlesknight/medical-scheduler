@@ -1,13 +1,25 @@
 class DoctorsController < ApplicationController
 
+    def index
+        @doctors = Doctor.all
+        @specialties = Specialty.all
+        @hospitals = Hospital.all
+        # @doctor = Doctor.search(params[:search])
+        if params[:search]
+            @doctor = Doctor.find_by(name: params[:search])
+            redirect_to @doctor
+        end
+    end
+
     def show
         @doctor = Doctor.find(params[:id])
-        # @date = @doctor.appointments.each { |d| Datetime.find(d.datetime_id)}
-        # @patient = @doctor.appointments.each { |d| Patient.find(d.patient_id).name}
+        # @patient = Patient.find(patient_id).name
+        # @datetime = Datetime.find(datetime_id).date
+        # @pharmacy = Pharmacy.find(pharmacy_id).name
     end
 
     def new
-        @doctors = Doctor.all
+        @doctor = Doctor.new
         @pharmacies = Pharmacy.all
         @specialties = Specialty.all
     end
@@ -16,6 +28,4 @@ class DoctorsController < ApplicationController
         @doctor = Doctor.find(params[:id])
     end
 
-
-    
 end

@@ -7,6 +7,10 @@ class AppointmentsController < ApplicationController
         @datetimes = Datetime.all
     end
 
+    def edit
+        @appointment = Appointment.find(params[:id])
+    end
+
     def show
         @appointment = Appointment.find(params[:id])
     end
