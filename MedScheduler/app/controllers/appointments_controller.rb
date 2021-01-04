@@ -12,10 +12,10 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        @appointment = Appointment.create(appt_params)
+        @appointment = Appointment.create(appt_params) 
         @doctor = Doctor.find(@appointment.doctor_id)
-        @doctor.appointments << @appointment
-        @doctor.patients << Patient.find(@appointment.patient_id)
+        # @doctor.appointments << @appointment
+        # @doctor.patients << Patient.find(@appointment.patient_id)
         redirect_to doctor_path(@appointment.doctor_id)
     end
 

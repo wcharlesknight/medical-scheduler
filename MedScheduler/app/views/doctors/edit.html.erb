@@ -1,0 +1,11 @@
+<%= form_with model: @doctors do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+    <%# *** Add rating %>
+    
+    <%= f.collection_select :pharmacy_id, @pharmacies, :id, :name %><br>
+    <%= f.collection_select :specialty_id, @specialties, :id, :name%><br><br>
+    <%= f.submit %>
+    <% end %>

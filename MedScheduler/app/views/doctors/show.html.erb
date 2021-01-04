@@ -1,9 +1,10 @@
 <h1><%= @doctor.name %></h1>
 
-<%= @doctor.datetimes.each do |d| %>
-<p><%= d.date %></p>
+
+<h4><%= "Appointments:" %></h4>
+<% @doctor.appointments.each do |d| %>
+<%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
+<%= "Date: #{Datetime.find(d.datetime_id).date}" %>
 <% end %>
 
-<%= @doctor.appointments.each do |d| %>
-<p><%= d %></p>
-<% end %>
+
