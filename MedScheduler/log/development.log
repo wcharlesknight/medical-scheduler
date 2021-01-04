@@ -2901,3 +2901,199 @@ Processing by DoctorsController#show as HTML
 Completed 200 OK in 68ms (Views: 49.4ms | ActiveRecord: 3.8ms | Allocations: 33653)
 
 
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:06:12 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/controllers/doctors_controller.rb:5:in `show'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:5:in `block in show'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:6:in `block in show'
+  Rendering doctors/show.html.erb within layouts/application
+  Rendered doctors/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 507)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 121ms (Views: 41.7ms | ActiveRecord: 4.0ms | Allocations: 40505)
+
+
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:06:28 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/controllers/doctors_controller.rb:5:in `show'
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:5:in `block in show'
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:6:in `block in show'
+  Rendering doctors/show.html.erb within layouts/application
+  Rendered doctors/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1387)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.4ms | Allocations: 4893)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @doctor.name %></h1>
+
+
+<h4><%= "Appointments:" %></h4>
+<%= "Patient Name: #{@patient}" %><br>
+<%= "Date: #{@date}" %>
+<% end %>
+
+
+
+):
+1:    <h1><%= @doctor.name %></h1>
+2:    
+3:    
+4:    <h4><%= "Appointments:" %></h4>
+5:    <%= "Patient Name: #{@patient}" %><br>
+6:    <%= "Date: #{@date}" %>
+7:    <% end %>
+  
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:07:35 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/controllers/doctors_controller.rb:5:in `show'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:5:in `block in show'
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.4ms | Allocations: 20609)
+
+
+  
+NoMethodError (undefined method `date' for #<Array:0x00007fd79767fb58>):
+  
+app/controllers/doctors_controller.rb:5:in `show'
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:08:05 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/controllers/doctors_controller.rb:5:in `show'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:5:in `block in show'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:6:in `block in show'
+  Rendering doctors/show.html.erb within layouts/application
+  Rendered doctors/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 996)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 3.6ms | Allocations: 27746)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @doctor.name %></h1>
+
+
+<h4><%= "Appointments:" %></h4>
+<%= "Patient Name: #{@patient}" %><br>
+<%= "Date: #{@date}" %>
+<% end %>
+
+
+
+):
+1:    <h1><%= @doctor.name %></h1>
+2:    
+3:    
+4:    <h4><%= "Appointments:" %></h4>
+5:    <%= "Patient Name: #{@patient}" %><br>
+6:    <%= "Date: #{@date}" %>
+7:    <% end %>
+  
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+app/views/doctors/show.html.erb:12: syntax error, unexpected end, expecting end-of-input
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:08:28 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/controllers/doctors_controller.rb:5:in `show'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:5:in `block in show'
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:6:in `block in show'
+  Rendering doctors/show.html.erb within layouts/application
+  Rendered doctors/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 272)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 7763)
+
+
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:10:37 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/controllers/doctors_controller.rb:5:in `show'
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:5:in `block in show'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 2.4ms | Allocations: 20489)
+
+
+  
+NoMethodError (undefined method `date' for #<Array:0x00007fd79e846660>):
+  
+app/controllers/doctors_controller.rb:5:in `show'
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:10:58 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/controllers/doctors_controller.rb:5:in `show'
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:5:in `block in show'
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:6:in `block in show'
+  Rendering doctors/show.html.erb within layouts/application
+  Rendered doctors/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 114)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 8.3ms | ActiveRecord: 4.0ms | Allocations: 30577)
+
+
+Started GET "/doctors/3" for ::1 at 2021-01-04 10:31:30 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:4:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/views/doctors/show.html.erb:5
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:6
+  [1m[36mDatetime Load (0.3ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:7
+  Rendered doctors/show.html.erb within layouts/application (Duration: 52.9ms | Allocations: 18041)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 65.1ms | ActiveRecord: 1.0ms | Allocations: 30428)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

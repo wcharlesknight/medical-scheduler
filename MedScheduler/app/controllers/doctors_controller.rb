@@ -2,7 +2,8 @@ class DoctorsController < ApplicationController
 
     def show
         @doctor = Doctor.find(params[:id])
-        #@highest_rated = @doctor.max{|d| d.rating}
+        # @date = @doctor.appointments.each { |d| Datetime.find(d.datetime_id)}
+        # @patient = @doctor.appointments.each { |d| Patient.find(d.patient_id).name}
     end
 
     def new
