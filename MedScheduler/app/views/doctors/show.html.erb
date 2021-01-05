@@ -1,6 +1,7 @@
 <h1>Name: <%= @doctor.name %></h1>
 <h3>Specialty: <%= @doctor.specialty.name %></h3>
 <h3>Pharmacy: <%= @doctor.pharmacy.name %></h3>
+<h3>Rating: <%= @doctor.rating %></h3>
 <h4><%= "Appointments:" %></h4>
 <% @doctor.appointments.each do |d| %>
 <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
