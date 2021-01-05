@@ -9,6 +9,8 @@ class DoctorsController < ApplicationController
             @doctor = Doctor.find_by(name: params[:search])
             redirect_to @doctor
         end
+
+        
     end
 
     def show
