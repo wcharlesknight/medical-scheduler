@@ -5,7 +5,7 @@ class Doctor < ApplicationRecord
   has_many :appointments
   has_many :patients, through: :appointments
   has_many :datetimes, through: :appointments
-
+  validates :datetimes, uniqueness: true  
 
   # def rating=(ratings)
   #   self.rating.to_s.split(' ').to_i << ratings.to_i

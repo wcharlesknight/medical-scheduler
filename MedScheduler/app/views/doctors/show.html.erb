@@ -10,6 +10,7 @@
 <%end%>
 <%= @doctor.rating.to_f %>
 
+<h3>Rating: <%= @doctor.rating %></h3>
 <h4><%= "Appointments:" %></h4>
 <% @doctor.appointments.each do |d| %>
 <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
