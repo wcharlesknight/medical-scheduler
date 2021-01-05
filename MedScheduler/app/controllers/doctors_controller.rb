@@ -7,7 +7,15 @@ class DoctorsController < ApplicationController
         # @doctor = Doctor.search(params[:search])
         if params[:search]
             @doctor = Doctor.find_by(name: params[:search])
-            redirect_to @doctor
+            @rating = Doctor.where(rating: params[:search])
+            if @doctor    
+                redirect_to @doctor
+            elsif @rating
+                @rating
+            else
+                flash[:error] = "Not a doctor or valid rating"
+                #redirect_to doctors_path
+            end
         end
     end
 
