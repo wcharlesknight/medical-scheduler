@@ -7,5 +7,12 @@ class Doctor < ApplicationRecord
   has_many :datetimes, through: :appointments
 
 
+  # def rating=(ratings)
+  #   self.rating.to_s.split(' ').to_i << ratings.to_i
+  # end
+
+  # def rating
+  #   self.rating.to_s.split(' ').to_i
+  # end
 
 end

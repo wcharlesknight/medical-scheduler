@@ -1,6 +1,15 @@
 <h1>Name: <%= @doctor.name %></h1>
 <h3>Specialty: <%= @doctor.specialty.name %></h3>
 <h3>Pharmacy: <%= @doctor.pharmacy.name %></h3>
+
+<%= form_tag doctor_path, :method => "patch" do %>
+<%= label_tag(:rating, "Leave a rating:") %> 
+<%= text_field_tag :rating %>
+<%= submit_tag("Submit", :name => nil) %><br>
+<%= "Must be a number 1-10" %>
+<%end%>
+<%= @doctor.rating.to_f %>
+
 <h4><%= "Appointments:" %></h4>
 <% @doctor.appointments.each do |d| %>
 <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>

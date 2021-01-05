@@ -6,7 +6,8 @@
 <%= label_tag(:search, "Search for doctor:") %>
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag("Search", :name => nil) %>
-<% end %><br>
+<% end %>
+<%= "(Search by rating or a Doctor's name)" %>
 
 <% if flash[:error] %>
  <%= flash[:error] %>
