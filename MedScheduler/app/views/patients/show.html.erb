@@ -1,0 +1,10 @@
+<h1>Name: <%= @patient.name %></h1>
+<h2>Gender: <%= @patient.gender %></h2>
+<h2>Age: <%= @patient.age %></h2>
+<h4><%= "Appointments:" %></h4>
+<% @patient.appointments.each do |d| %>
+<%= "Doctor Name: #{Doctor.find(d.doctor_id).name}" %><br>
+<%= "Date: #{Datetime.find(d.datetime_id).date}" %>
+<%= button_to "Cancel appointment", d, method: "delete" %>
+<% end %><br>
+<br>

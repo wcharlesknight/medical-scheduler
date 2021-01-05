@@ -23,6 +23,12 @@ class AppointmentsController < ApplicationController
         redirect_to doctor_path(@appointment.doctor_id)
     end
 
+    def destroy
+        @appointment = Appointment.find(params[:id])
+        @appointment.destroy
+        redirect_to patient_path(@appointment.patient_id)
+    end
+
     private
 
     def appt_params
