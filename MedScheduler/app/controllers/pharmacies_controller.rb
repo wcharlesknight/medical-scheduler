@@ -15,4 +15,5 @@ class PharmaciesController < ApplicationController
     def show
         @pharmacy = Pharmacy.find(params[:id])
     end
+    
 end

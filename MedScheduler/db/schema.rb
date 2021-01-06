@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_185854) do
+ActiveRecord::Schema.define(version: 2021_01_06_023104) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "doctor_id", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_01_04_185854) do
     t.integer "age"
     t.integer "rating"
     t.integer "hospital_id"
+    t.integer "cost"
     t.index ["pharmacy_id"], name: "index_doctors_on_pharmacy_id"
     t.index ["specialty_id"], name: "index_doctors_on_specialty_id"
   end

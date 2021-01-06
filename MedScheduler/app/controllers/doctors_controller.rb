@@ -20,7 +20,7 @@ class DoctorsController < ApplicationController
     end
 
     def show
-        @oldest = Doctor.oldest_patient
+        
     end
 
     def new
@@ -43,6 +43,7 @@ class DoctorsController < ApplicationController
     def analytics
         @highest_rated = Doctor.highest_rated
         @busiest = Doctor.busiest_doctor
+        @busiest = Pharmacy.all.max_by{|p| p.doctors.count}
     end
 
     private
