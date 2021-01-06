@@ -1,6 +1,7 @@
 <h1>Name: <%= @doctor.name %></h1>
 <h3>Specialty: <%= @doctor.specialty.name %></h3>
-<h3>Pharmacy: <%= @doctor.pharmacy.name %></h3>
+<h3>Pharmacy: <%= @doctor.pharmacy.name%></h3>
+
 
 <%= form_tag doctor_path, :method => "patch" do %>
 <%= label_tag(:rating, "Leave a rating:") %> 

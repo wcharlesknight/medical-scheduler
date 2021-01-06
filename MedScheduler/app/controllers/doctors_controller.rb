@@ -20,7 +20,7 @@ class DoctorsController < ApplicationController
     end
 
     def show
-        
+        @oldest = Doctor.oldest_patient
     end
 
     def new
