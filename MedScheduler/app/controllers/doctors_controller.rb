@@ -17,8 +17,6 @@ class DoctorsController < ApplicationController
                 #redirect_to doctors_path
             end
         end
-
-        
     end
 
     def show
@@ -45,6 +43,7 @@ class DoctorsController < ApplicationController
     def analytics
         @highest_rated = Doctor.highest_rated
         @busiest = Doctor.busiest_doctor
+        @busiest = Pharmacy.all.max_by{|p| p.doctors.count}
     end
 
     private

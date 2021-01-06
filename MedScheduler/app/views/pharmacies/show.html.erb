@@ -1,0 +1,8 @@
+<h1><%= @pharmacy.name %></h1>
+
+<h3>Doctors who prescribe here:</h3>
+<% @pharmacy.doctors.each do |d| %>
+<%= link_to d.name, doctor_path(d) %><br>
+<%= d.specialty.name %><br>
+<%= d.hospital.name %><br><br>
+<% end %>
