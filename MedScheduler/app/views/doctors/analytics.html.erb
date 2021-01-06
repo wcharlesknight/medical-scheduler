@@ -1,1 +1,9 @@
-<%= @highest_rated %>
+<h3><%= "Highest rated Doctor: #{@highest_rated.name}"  %></h3>
+<h3><%= "Doctor with the most patients currently: #{@busiest.name}" %></h3> 
+<h3><%= "Pharmacy with the most Doctors: #{@busiest_pharm.name}"%></h3>
+<h3><%="Pharmacy with the least Doctors: #{@slowest_pharm.name}"%></h3>
+
+<h3><%="Specialty with the highest average rating: #{@spec_highest.name}"%></h3>
+
+<h3><%="Specialty with the highest average cost: #{@spec_high_cost.name}"%></h3>
+

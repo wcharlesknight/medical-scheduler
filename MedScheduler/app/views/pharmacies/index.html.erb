@@ -1,6 +1,6 @@
 <h1>Pharmacies</h1>
 <h2>Busiest Pharmacy Right Now: <%= @busiest.name %></h2>
-
+<h2>Least Busy Pharmacy Right Now: <%= @slowest.name %></h2>
 <%= form_tag pharmacies_path, :method => "get" do %>
 <%= label_tag(:search, "Search for pharmacy:") %>
 <%= text_field_tag :search, params[:search] %>

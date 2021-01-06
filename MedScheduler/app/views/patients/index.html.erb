@@ -1,0 +1,7 @@
+<h1> All Patients: </h1>
+<h2>Oldest Patient: <%= @oldest.age %></h2>
+<h2>Youngest Patient: <%= @youngest.age %></h2>
+
+<% @patients.each do |p| %>
+<h3><%= link_to p.name, patient_path(p.id)%></h3><br>
+<% end %>

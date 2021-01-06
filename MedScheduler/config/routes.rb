@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :doctors
   resources :patients
   resources :pharmacies
+  resources :hospitals
 
   get '/analytics', to: 'doctors#analytics'
 
