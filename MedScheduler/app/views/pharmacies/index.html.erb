@@ -1,0 +1,12 @@
+<h1>Pharmacies</h1>
+<h2>Busiest Pharmacy Right Now: <%= @busiest.name %></h2>
+
+<%= form_tag pharmacies_path, :method => "get" do %>
+<%= label_tag(:search, "Search for pharmacy:") %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag("Search", :name => nil) %>
+<% end %> <br>
+
+<% @pharmacies.each do |d| %>
+<h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+<% end %>

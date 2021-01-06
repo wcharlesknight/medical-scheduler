@@ -4,13 +4,10 @@ class DoctorsController < ApplicationController
         @doctors = Doctor.all
         @specialties = Specialty.all
         @hospitals = Hospital.all
-        # @doctor = Doctor.search(params[:search])
         if params[:search]
             @doctor = Doctor.find_by(name: params[:search])
             redirect_to @doctor
         end
-
-        
     end
 
     def show

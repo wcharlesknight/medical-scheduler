@@ -61529,3 +61529,2289 @@ Processing by PatientsController#show as HTML
 Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.7ms | Allocations: 6950)
 
 
+Started GET "/patients/1" for ::1 at 2021-01-05 11:50:25 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:4:in `show'
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:5
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:6
+  [1m[36mDatetime Load (0.8ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:7
+  Rendered patients/show.html.erb within layouts/application (Duration: 66.3ms | Allocations: 24564)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 163ms (Views: 114.2ms | ActiveRecord: 6.6ms | Allocations: 43537)
+
+
+Started GET "/doctr" for ::1 at 2021-01-05 11:50:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/doctr"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/doctors/1" for ::1 at 2021-01-05 11:50:37 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:17:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.5ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.5ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/views/doctors/show.html.erb:6
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:7
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:8
+  Rendered doctors/show.html.erb within layouts/application (Duration: 26.3ms | Allocations: 13828)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 30.4ms | ActiveRecord: 3.0ms | Allocations: 19270)
+
+
+Started GET "/patients/1" for ::1 at 2021-01-05 11:50:54 -0800
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:4:in `show'
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:5
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:6
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:7
+  Rendered patients/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2068)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.6ms | Allocations: 6975)
+
+
+Started GET "/appointments/new" for ::1 at 2021-01-05 11:51:33 -0800
+Processing by AppointmentsController#new as HTML
+  Rendering appointments/new.html.erb within layouts/application
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/appointments/new.html.erb:9
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/appointments/new.html.erb:10
+  [1m[36mDatetime Load (0.3ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes"[0m
+  ↳ app/views/appointments/new.html.erb:11
+  Rendered appointments/new.html.erb within layouts/application (Duration: 173.3ms | Allocations: 214346)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 181ms (Views: 178.2ms | ActiveRecord: 1.5ms | Allocations: 219296)
+
+
+Started POST "/appointments" for ::1 at 2021-01-05 11:51:35 -0800
+Processing by AppointmentsController#create as JS
+  Parameters: {"authenticity_token"=>"raESzpR5vvw+4wrIgvk+hiyYUO95tiVtolxSCDsF+ugouf8lbWOV5Xma8BOn4L2U/zBneXi+/baXsMS+oEFFAA==", "appointment"=>{"doctor_id"=>"1", "patient_id"=>"1", "datetime_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mAppointment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."datetime_id" = ? AND "appointments"."doctor_id" = ? LIMIT ?[0m  [["datetime_id", 1], ["doctor_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[36mAppointment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."datetime_id" = ? AND "appointments"."doctor_id" = ? LIMIT ?[0m  [["datetime_id", 1], ["doctor_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:21:in `create'
+Redirected to http://localhost:3000/appointments/new
+Completed 200 OK in 12ms (ActiveRecord: 0.9ms | Allocations: 8388)
+
+
+Started GET "/appointments/new" for ::1 at 2021-01-05 11:51:35 -0800
+Processing by AppointmentsController#new as HTML
+  Rendering appointments/new.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/appointments/new.html.erb:9
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/appointments/new.html.erb:10
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes"[0m
+  ↳ app/views/appointments/new.html.erb:11
+  Rendered appointments/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 7651)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 1.2ms | Allocations: 12072)
+
+
+Started GET "/patients/1" for ::1 at 2021-01-05 11:51:45 -0800
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:4:in `show'
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:5
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:6
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:7
+  Rendered patients/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2064)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.5ms | Allocations: 6955)
+
+
+Started GET "/appointments/new" for ::1 at 2021-01-05 11:51:49 -0800
+Processing by AppointmentsController#new as HTML
+  Rendering appointments/new.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/appointments/new.html.erb:9
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/appointments/new.html.erb:10
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes"[0m
+  ↳ app/views/appointments/new.html.erb:11
+  Rendered appointments/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 7657)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.8ms | Allocations: 12066)
+
+
+Started POST "/appointments" for ::1 at 2021-01-05 11:51:52 -0800
+Processing by AppointmentsController#create as JS
+  Parameters: {"authenticity_token"=>"HZEVjyBkdfB951naFTZquTa6AAeuZoDTwMImBWpI6+aYifhk2X5e6TqeowEwL+mr5RI3ka9uWAj1LrCz8QxUDg==", "appointment"=>{"doctor_id"=>"1", "patient_id"=>"1", "datetime_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."datetime_id" = ? AND "appointments"."doctor_id" = ? LIMIT ?[0m  [["datetime_id", 1], ["doctor_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:19:in `create'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[36mAppointment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."datetime_id" = ? AND "appointments"."doctor_id" = ? LIMIT ?[0m  [["datetime_id", 1], ["doctor_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:21:in `create'
+Redirected to http://localhost:3000/appointments/new
+Completed 200 OK in 10ms (ActiveRecord: 0.8ms | Allocations: 7725)
+
+
+Started GET "/appointments/new" for ::1 at 2021-01-05 11:51:52 -0800
+Processing by AppointmentsController#new as HTML
+  Rendering appointments/new.html.erb within layouts/application
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/appointments/new.html.erb:9
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/appointments/new.html.erb:10
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes"[0m
+  ↳ app/views/appointments/new.html.erb:11
+  Rendered appointments/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 7651)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.8ms | Allocations: 12076)
+
+
+Started GET "/doctors/1" for ::1 at 2021-01-05 15:40:27 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctor Load (0.5ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:17:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.5ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.7ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/views/doctors/show.html.erb:6
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:7
+  [1m[36mDatetime Load (0.5ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:8
+  Rendered doctors/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3445)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 17.7ms | ActiveRecord: 3.8ms | Allocations: 8364)
+
+
+Started GET "/doctors" for ::1 at 2021-01-05 15:40:28 -0800
+Processing by DoctorsController#index as HTML
+  Rendering doctors/index.html.erb within layouts/application
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/doctors/index.html.erb:16
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.5ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  Rendered doctors/index.html.erb within layouts/application (Duration: 86.0ms | Allocations: 33476)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 109ms (Views: 96.6ms | ActiveRecord: 3.4ms | Allocations: 41045)
+
+
+Started GET "/patients/1" for ::1 at 2021-01-05 15:44:06 -0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:4:in `show'
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:5
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:6
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:7
+  Rendered patients/show.html.erb within layouts/application (Duration: 33.5ms | Allocations: 21155)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 39.8ms | ActiveRecord: 3.0ms | Allocations: 33782)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:44:08 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 8568)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:44:53 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 311)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 5652)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:46:11 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 6065)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms | Allocations: 7408)
+
+
+  
+ActionView::Template::Error (undefined method `hospital' for #<Pharmacy:0x00007fd3c6030740>):
+     9: <% @pharmacies.each do |d| %>
+    10: <%= link_to d.name, pharmacy_path(d.id)%><br>
+    11: <%= d.name %><br>
+    12: <%= d.hospital.name %><br>
+    13: <% end %>
+  
+app/views/pharmacies/index.html.erb:12
+app/views/pharmacies/index.html.erb:9
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:46:18 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1147)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.1ms | Allocations: 6491)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:46:37 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1129)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 6469)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:46:44 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1131)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 6466)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:47:06 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1136)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 6477)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:47:07 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.3ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 73)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 5221)
+
+
+Started GET "/pharmacies/2" for ::1 at 2021-01-05 15:47:09 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 4893)
+
+
+Started GET "/pharmacies/3" for ::1 at 2021-01-05 15:47:11 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 4893)
+
+
+Started GET "/pharmacies?search=Walgreens+on+5th" for ::1 at 2021-01-05 15:47:29 -0800
+Processing by PharmaciesController#index as HTML
+  Parameters: {"search"=>"Walgreens on 5th"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."name" = ? LIMIT ?[0m  [["name", "Walgreens on 5th"], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:8:in `index'
+Redirected to http://localhost:3000/pharmacies/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1223)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:47:29 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 4896)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:48:19 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3450)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 4792)
+
+
+  
+ActionView::Template::Error (undefined method `doctor' for #<Pharmacy:0x00007fd3c176ce78>
+Did you mean?  doctors
+               doctors=):
+     8: 
+     9: <% @pharmacies.each do |d| %>
+    10: <h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+    11:     <%= d.doctor.name %>
+    12: <% end %>
+  
+app/views/pharmacies/index.html.erb:11
+app/views/pharmacies/index.html.erb:9
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:49:00 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2503)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.1ms | Allocations: 7752)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:49:12 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1299)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 6640)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:49:31 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 3416)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4755)
+
+
+  
+ActionView::Template::Error (undefined method `doctor' for #<Pharmacy:0x00007fd3c58ae670>
+Did you mean?  doctors
+               doctors=):
+     8: 
+     9: <% @pharmacies.each do |d| %>
+    10: <h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+    11:     <%= d.doctor.name %>
+    12: <% end %>
+  
+app/views/pharmacies/index.html.erb:11
+app/views/pharmacies/index.html.erb:9
+Started GET "/patients/1" for ::1 at 2021-01-05 15:50:13 -0800
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:4:in `show'
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:5
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:6
+  [1m[36mDatetime Load (0.1ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:7
+  Rendered patients/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2286)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.5ms | Allocations: 7939)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:50:14 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 3187)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 3784)
+
+
+  
+ActionView::Template::Error (undefined method `doctor' for #<Pharmacy:0x00007fd3ca627460>
+Did you mean?  doctors
+               doctors=):
+     8: 
+     9: <% @pharmacies.each do |d| %>
+    10: <h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+    11:     <%= d.doctor.name %>
+    12: <% end %>
+  
+app/views/pharmacies/index.html.erb:11
+app/views/pharmacies/index.html.erb:9
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:50:27 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1134)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 6472)
+
+
+Started GET "/doctors/1" for ::1 at 2021-01-05 15:50:33 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/views/doctors/show.html.erb:6
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:7
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:8
+  Rendered doctors/show.html.erb within layouts/application (Duration: 13.7ms | Allocations: 8700)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 1.4ms | Allocations: 14074)
+
+
+Started GET "/doctors" for ::1 at 2021-01-05 15:50:34 -0800
+Processing by DoctorsController#index as HTML
+  Rendering doctors/index.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/doctors/index.html.erb:16
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.3ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  Rendered doctors/index.html.erb within layouts/application (Duration: 86.8ms | Allocations: 33345)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 94ms (Views: 89.2ms | ActiveRecord: 3.5ms | Allocations: 37783)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:51:04 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3353)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms | Allocations: 4700)
+
+
+  
+ActionView::Template::Error (undefined method `hospital' for #<Pharmacy:0x00007fd3c5661958>):
+     8: 
+     9: <% @pharmacies.each do |d| %>
+    10: <h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+    11: <%= d.hospital %>
+    12: <% end %>
+  
+app/views/pharmacies/index.html.erb:11
+app/views/pharmacies/index.html.erb:9
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:51:11 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3347)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4694)
+
+
+  
+ActionView::Template::Error (undefined method `hospital' for #<Pharmacy:0x00007fd3c4fe12b8>):
+     8: 
+     9: <% @pharmacies.each do |d| %>
+    10: <h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+    11: <%= d.hospital.name %>
+    12: <% end %>
+  
+app/views/pharmacies/index.html.erb:11
+app/views/pharmacies/index.html.erb:9
+Started GET "/pharmacies" for ::1 at 2021-01-05 15:51:28 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1133)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.2ms | Allocations: 6479)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:51:29 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 73)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.2ms | Allocations: 5103)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:52:38 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1431)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 3247)
+
+
+  
+ActionView::Template::Error (undefined method `appointments' for nil:NilClass):
+    1: <h1>Name: <%= @pharmacy.name %></h1>
+    2: 
+    3: <h4><%= "Doctors who prescribe here:" %></h4>
+    4: <% @doctor.appointments.each do |d| %>
+    5: <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
+    6: <%= "Date: #{Datetime.find(d.datetime_id).date}" %>
+    7: <% end %>
+  
+app/views/pharmacies/show.html.erb:4
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:52:55 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2509)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 4329)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Pharmacy:0x00007fd3c174ce70>):
+    1: <h1>Name: <%= @pharmacy.name %></h1>
+    2: 
+    3: <h4><%= "Doctors who prescribe here:" %></h4>
+    4: <% @pharmacy.each do |d| %>
+    5: <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
+    6: <%= "Date: #{Datetime.find(d.datetime_id).date}" %>
+    7: <% end %>
+  
+app/views/pharmacies/show.html.erb:4
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:53:32 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2462)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4282)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Pharmacy:0x00007fd3c708ff78>):
+    1: <h1>Name: <%= @pharmacy.name %></h1>
+    2: 
+    3: <h4><%= "Doctors who prescribe here:" %></h4>
+    4: <% @pharmacy.each do |d| %>
+    5: <%= "Doctor: #{Doctor.find(d.doctor_id).name}" %><br>
+    6: <% end %>
+  
+app/views/pharmacies/show.html.erb:4
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:53:52 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 101)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 5922)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:54:02 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 5918)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:54:21 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2473)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.2ms | Allocations: 4296)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Pharmacy:0x00007fd3ca089fa8>):
+    1: <h1><%= @pharmacy.name %></h1>
+    2: 
+    3: <h4><%= "Doctors who prescribe here:"%></h4>
+    4: <% @pharmacy.each do |d| %>
+    5: <%= "Doctor: #{Doctor.find(d.doctor_id).name}" %><br>
+    6: <% end %> %>
+  
+app/views/pharmacies/show.html.erb:4
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:55:30 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (1.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 3934)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.3ms | Allocations: 5754)
+
+
+  
+ActionView::Template::Error (undefined method `doctor_id' for #<Doctor:0x00007fd3ca4be790>):
+    2: 
+    3: <h4>"Doctors who prescribe here:" </h4>
+    4: <% @pharmacy.doctors.each do |d| %>
+    5: <%= "Doctor: #{Doctor.find(d.doctor_id).name}" %><br>
+    6: <% end %> %>
+  
+app/views/pharmacies/show.html.erb:5
+app/views/pharmacies/show.html.erb:4
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:56:10 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1047)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2868)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @pharmacy.name %></h1>
+
+<h4>"Doctors who prescribe here:" </h4>
+<% @pharmacy.doctors.each do |d| %>
+<%= "Doctor:" d.name %><br>
+<% end %> %>
+):
+1:    <h1><%= @pharmacy.name %></h1>
+2:    
+3:    <h4>"Doctors who prescribe here:" </h4>
+4:    <% @pharmacy.doctors.each do |d| %>
+5:    <%= "Doctor:" d.name %><br>
+6:    <% end %> %>
+  
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:57:17 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1047)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 2868)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @pharmacy.name %></h1>
+
+<h4>"Doctors who prescribe here:" </h4>
+<% @pharmacy.doctors.each do |d| %>
+<%= "Doctor:" d %><br>
+<% end %> %>
+):
+1:    <h1><%= @pharmacy.name %></h1>
+2:    
+3:    <h4>"Doctors who prescribe here:" </h4>
+4:    <% @pharmacy.doctors.each do |d| %>
+5:    <%= "Doctor:" d %><br>
+6:    <% end %> %>
+  
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:57:32 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1042)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2863)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @pharmacy.name %></h1>
+
+<h4>"Doctors who prescribe here:" </h4>
+<% @pharmacy.doctors.each do |d| %>
+<%= "Doctor:" d.name %><br>
+<% end %>
+):
+1:    <h1><%= @pharmacy.name %></h1>
+2:    
+3:    <h4>"Doctors who prescribe here:" </h4>
+4:    <% @pharmacy.doctors.each do |d| %>
+5:    <%= "Doctor:" d.name %><br>
+6:    <% end %>
+  
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/pharmacies/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:57:48 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 967)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.3ms | Allocations: 6788)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:57:59 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 968)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 6781)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:58:14 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1003)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 6822)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:58:21 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.3ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1003)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 0.5ms | Allocations: 6816)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:58:33 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 11.0ms | Allocations: 6109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 1.2ms | Allocations: 11924)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:58:38 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 10.1ms | Allocations: 6109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 1.1ms | Allocations: 11927)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:58:50 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 17.0ms | Allocations: 11165)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 1.8ms | Allocations: 16979)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:58:59 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 16.4ms | Allocations: 11166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 1.8ms | Allocations: 16980)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:59:07 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 17.3ms | Allocations: 11168)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 1.5ms | Allocations: 16988)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:59:14 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 18.8ms | Allocations: 11163)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 2.0ms | Allocations: 16980)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:59:25 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 22.4ms | Allocations: 11164)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 1.6ms | Allocations: 16983)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 15:59:33 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 19.8ms | Allocations: 10998)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 1.5ms | Allocations: 15890)
+
+
+Started GET "/pharmacies/2" for ::1 at 2021-01-05 15:59:37 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2224)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 7118)
+
+
+Started GET "/pharmacies/3" for ::1 at 2021-01-05 15:59:41 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.3ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3714)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 1.0ms | Allocations: 8601)
+
+
+Started GET "/pharmacies/4" for ::1 at 2021-01-05 15:59:43 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3715)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.8ms | Allocations: 8609)
+
+
+Started GET "/pharmacies/5" for ::1 at 2021-01-05 15:59:45 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPharmacy Load (0.3ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 34.0ms | Allocations: 12324)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 37.7ms | ActiveRecord: 2.0ms | Allocations: 17212)
+
+
+Started GET "/pharmacies/5" for ::1 at 2021-01-05 16:01:57 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 3409)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms | Allocations: 5233)
+
+
+  
+ActionView::Template::Error (undefined method `doctor' for #<Pharmacy:0x00007fd3ca3f9558>
+Did you mean?  doctors
+               doctors=):
+    2: 
+    3: <h3>Doctors who prescribe here:</h3>
+    4: <% @pharmacy.doctors.each do |d| %>
+    5: <%= link_to d.name, @pharmacy.doctor %><br>
+    6: <%= d.specialty.name %><br>
+    7: <%= d.hospital.name %><br><br>
+    8: <% end %>
+  
+app/views/pharmacies/show.html.erb:5
+app/views/pharmacies/show.html.erb:4
+Started GET "/pharmacies/5" for ::1 at 2021-01-05 16:02:05 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4051)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms | Allocations: 5874)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<Doctor::ActiveRecord_Associations_CollectionProxy:0x00007fd3ca5167d8>
+Did you mean?  to_xml):
+    2: 
+    3: <h3>Doctors who prescribe here:</h3>
+    4: <% @pharmacy.doctors.each do |d| %>
+    5: <%= link_to d.name, @pharmacy.doctors %><br>
+    6: <%= d.specialty.name %><br>
+    7: <%= d.hospital.name %><br><br>
+    8: <% end %>
+  
+app/views/pharmacies/show.html.erb:5
+app/views/pharmacies/show.html.erb:4
+Started GET "/pharmacies/5" for ::1 at 2021-01-05 16:03:14 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 23.1ms | Allocations: 12694)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 1.8ms | Allocations: 18516)
+
+
+Started GET "/doctors/2" for ::1 at 2021-01-05 16:03:15 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.4ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 2]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2413)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.9ms | Allocations: 7877)
+
+
+Started GET "/doctors/3" for ::1 at 2021-01-05 16:03:17 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.6ms | Allocations: 7098)
+
+
+Started GET "/doctors/6" for ::1 at 2021-01-05 16:03:21 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 6]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 7097)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:03:33 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1134)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 5685)
+
+
+Started GET "/pharmacies/3" for ::1 at 2021-01-05 16:03:51 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 19.6ms | Allocations: 3775)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.8ms | Allocations: 8667)
+
+
+Started GET "/doctors/20" for ::1 at 2021-01-05 16:03:54 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 20]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.8ms | Allocations: 7096)
+
+
+Started GET "/doctors/11" for ::1 at 2021-01-05 16:03:59 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 11]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.9ms | Allocations: 7092)
+
+
+Started GET "/pharmacies?search=Walgreens+on+5th" for ::1 at 2021-01-05 16:04:37 -0800
+Processing by PharmaciesController#index as HTML
+  Parameters: {"search"=>"Walgreens on 5th"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."name" = ? LIMIT ?[0m  [["name", "Walgreens on 5th"], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:8:in `index'
+Redirected to http://localhost:3000/pharmacies/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1007)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 16:04:37 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.3ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 21.0ms | Allocations: 11176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 33.0ms | ActiveRecord: 2.4ms | Allocations: 16065)
+
+
+Started GET "/doctors/5" for ::1 at 2021-01-05 16:04:43 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 5]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.7ms | Allocations: 7093)
+
+
+Started GET "/doctors/8" for ::1 at 2021-01-05 16:04:45 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 8]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.6ms | Allocations: 7088)
+
+
+Started GET "/doctors/12" for ::1 at 2021-01-05 16:04:48 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:14:in `show'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.3ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 12]]
+  ↳ app/views/doctors/show.html.erb:6
+  Rendered doctors/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.9ms | Allocations: 7095)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 16:10:46 -0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (1.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.4ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 46.4ms | Allocations: 28617)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 55.8ms | ActiveRecord: 3.2ms | Allocations: 37634)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 16:11:41 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 17.3ms | Allocations: 11367)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 1.5ms | Allocations: 17192)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 16:11:50 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:14:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.3ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 23.9ms | Allocations: 11346)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 30.5ms | ActiveRecord: 2.1ms | Allocations: 17166)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:11:54 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1164)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 5716)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:12:29 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PharmaciesController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 7193)
+
+
+  
+NoMethodError (undefined method `doctors' for nil:NilClass):
+  
+app/controllers/pharmacies_controller.rb:7:in `index'
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:12:44 -0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PharmaciesController#index as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 7210)
+
+
+  
+NoMethodError (undefined method `doctors' for nil:NilClass):
+  
+app/controllers/pharmacies_controller.rb:7:in `index'
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:13:17 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3808)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 11.6ms | ActiveRecord: 0.7ms | Allocations: 14463)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:14:56 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.3ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4011)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 13.5ms | ActiveRecord: 1.0ms | Allocations: 15505)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:14 -0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:9
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 19.4ms | Allocations: 3760)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 25.6ms | ActiveRecord: 0.7ms | Allocations: 14518)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:42 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1156)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 6495)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:44 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 920)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 5332)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:44 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 5324)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:44 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 5323)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:45 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 5319)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:45 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 5325)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:45 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.2ms | Allocations: 5319)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:15:45 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.1ms | Allocations: 5324)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:16:17 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1125)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2464)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pharmacies</h1>
+<h2><%= Pharmacy.@busiest %></h2>
+
+<%= form_tag pharmacies_path, :method => "get" do %>
+<%= label_tag(:search, "Search for pharmacy:") %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag("Search", :name => nil) %>
+<% end %> <br>
+
+<% @pharmacies.each do |d| %>
+<h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+<% end %>
+):
+1:    <h1>Pharmacies</h1>
+2:    <h2><%= Pharmacy.@busiest %></h2>
+3:    
+4:    <%= form_tag pharmacies_path, :method => "get" do %>
+5:    <%= label_tag(:search, "Search for pharmacy:") %>
+6:    <%= text_field_tag :search, params[:search] %>
+7:    <%= submit_tag("Search", :name => nil) %>
+8:    <% end %> <br>
+9:    
+10:    <% @pharmacies.each do |d| %>
+11:    <h2><%= link_to d.name, pharmacy_path(d.id)%></h2><br><br><br>
+12:    <% end %>
+  
+app/views/pharmacies/index.html.erb:2: syntax error, unexpected tIVAR
+app/views/pharmacies/index.html.erb:2: syntax error, unexpected tIVAR
+app/views/pharmacies/index.html.erb:2: syntax error, unexpected tIVAR
+app/views/pharmacies/index.html.erb:2: syntax error, unexpected tIVAR
+app/views/pharmacies/index.html.erb:2: syntax error, unexpected tIVAR
+app/views/pharmacies/index.html.erb:2: syntax error, unexpected tIVAR
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:16:24 -0800
+Processing by PharmaciesController#index as HTML
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1148)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.1ms | Allocations: 6490)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:16:50 -0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PharmaciesController#index as HTML
+  [1m[36mPharmacy Load (0.4ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/controllers/pharmacies_controller.rb:7:in `max_by'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mCACHE Pharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 852)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 7.5ms | ActiveRecord: 2.2ms | Allocations: 19612)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:17:18 -0800
+Processing by PharmaciesController#index as HTML
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/controllers/pharmacies_controller.rb:7:in `max_by'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mCACHE Pharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1083)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 9.8ms | ActiveRecord: 0.9ms | Allocations: 10864)
+
+
+Started GET "/pharmacies/1" for ::1 at 2021-01-05 16:17:20 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPharmacy Load (0.3ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:15:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 37.5ms | Allocations: 24093)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 39.5ms | ActiveRecord: 3.6ms | Allocations: 29143)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:17:36 -0800
+Processing by PharmaciesController#index as HTML
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/controllers/pharmacies_controller.rb:7:in `max_by'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mCACHE Pharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1079)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 8.9ms | ActiveRecord: 0.9ms | Allocations: 10855)
+
+
+Started GET "/doctors" for ::1 at 2021-01-05 16:18:49 -0800
+Processing by DoctorsController#index as HTML
+  Rendering doctors/index.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/doctors/index.html.erb:16
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:18
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/doctors/index.html.erb:19
+  Rendered doctors/index.html.erb within layouts/application (Duration: 80.9ms | Allocations: 29960)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 89ms (Views: 85.6ms | ActiveRecord: 2.7ms | Allocations: 34891)
+
+
+Started GET "/patients/1" for ::1 at 2021-01-05 16:20:56 -0800
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:4:in `show'
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:5
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:6
+  [1m[36mDatetime Load (0.2ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes" WHERE "datetimes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/patients/show.html.erb:7
+  Rendered patients/show.html.erb within layouts/application (Duration: 23.6ms | Allocations: 12862)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 35.0ms | ActiveRecord: 3.0ms | Allocations: 24798)
+
+
+Started GET "/pharmacies" for ::1 at 2021-01-05 16:20:57 -0800
+Processing by PharmaciesController#index as HTML
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/controllers/pharmacies_controller.rb:7:in `max_by'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/controllers/pharmacies_controller.rb:7:in `block in index'
+  Rendering pharmacies/index.html.erb within layouts/application
+  [1m[36mCACHE Pharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/pharmacies/index.html.erb:10
+  Rendered pharmacies/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 849)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 13.3ms | ActiveRecord: 2.3ms | Allocations: 9702)
+
+
