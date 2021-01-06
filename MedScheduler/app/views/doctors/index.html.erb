@@ -1,17 +1,24 @@
 <h1>Doctors</h1>
+
+
+
 <%= form_tag doctors_path, :method => "get" do %>
 <%= label_tag(:search, "Search for doctor:") %>
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag("Search", :name => nil) %>
-<% end %> <br>
+<% end %>
+<%= "(Search by rating or a Doctor's name)" %>
 
-<%= form_tag doctors_path, :method => "get" do %>
-<%= label_tag(:search, "Search by rating:") %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag("Search", :name => nil) %>
-<% end %><br>
+<% if flash[:error] %>
+ <%= flash[:error] %>
+<%end%><br><br>
 
-
+<% if @rating.to_a %>
+<%= "Doctor(s) with a rating of #{params[:search]}:" %><br>
+ <% @rating.to_a.each do |d| %>
+    <%= d.name %><br>
+  <%end%>
+<%end%><br><br>
 
 <% @doctors.each do |d| %>
 <%= link_to d.name, doctor_path(d.id)%><br>
@@ -19,4 +26,6 @@
 <%= d.hospital.name %><br>
 <%= d.rating %><br><br>
 <% end %>
+
+
 
