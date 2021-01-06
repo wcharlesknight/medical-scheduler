@@ -5,7 +5,6 @@ class DoctorsController < ApplicationController
         @doctors = Doctor.all
         @specialties = Specialty.all
         @hospitals = Hospital.all
-        # @doctor = Doctor.search(params[:search])
         if params[:search]
             @doctor = Doctor.find_by(name: params[:search])
             @rating = Doctor.where(rating: params[:search])
@@ -18,10 +17,11 @@ class DoctorsController < ApplicationController
                 #redirect_to doctors_path
             end
         end
+
+        
     end
 
     def show
-        #@doctor.rating.sum { |b| b} / @doctor.rating.length 
         
     end
 
@@ -40,6 +40,11 @@ class DoctorsController < ApplicationController
 
     def edit
       
+    end
+
+    def analytics
+        @highest_rated = Doctor.highest_rated
+        @busiest = Doctor.busiest_doctor
     end
 
     private

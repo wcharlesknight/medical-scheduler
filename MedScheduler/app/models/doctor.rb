@@ -5,14 +5,17 @@ class Doctor < ApplicationRecord
   has_many :appointments
   has_many :patients, through: :appointments
   has_many :datetimes, through: :appointments
-  validates :datetimes, uniqueness: true  
+  has_many :ratings
+  #validates :datetime_id, uniqueness: { scope: :appointment }
+  accepts_nested_attributes_for :datetimes, :appointments
 
-  # def rating=(ratings)
-  #   self.rating.to_s.split(' ').to_i << ratings.to_i
-  # end
+  
+  def self.highest_rated
+    Doctor.all.max_by(&:rating)
+  end
 
-  # def rating
-  #   self.rating.to_s.split(' ').to_i
-  # end
+  def self.busiest_doctor
+    Doctor.all.max_by {|d| d.patients.count}
+  end
 
 end
