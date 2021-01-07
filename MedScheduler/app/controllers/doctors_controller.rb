@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-    before_action :current_doctor,  only: [:edit, :show, :update ]
+    before_action :current_doctor,  only: [:edit, :show, :update]
     
     def index
         @doctors = Doctor.all

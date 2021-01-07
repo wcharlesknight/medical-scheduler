@@ -1,9 +1,9 @@
-<h3><%= "Highest rated Doctor: #{@highest_rated.name}"  %></h3>
-<h3><%= "Doctor with the most patients currently: #{@busiest.name}" %></h3> 
-<h3><%= "Pharmacy with the most Doctors: #{@busiest_pharm.name}"%></h3>
-<h3><%="Pharmacy with the least Doctors: #{@slowest_pharm.name}"%></h3>
+<h3>Highest rated Doctor: <%= link_to "#{@highest_rated.name}", doctor_path(@highest_rated.id) %></h3>
+<h3>Doctor with the most patients currently: <%= link_to "#{@busiest.name}", doctor_path(@busiest.id) %></h3> 
+<h3>Pharmacy with the most Doctors: <%= link_to "#{@busiest_pharm.name}", pharmacy_path(@busiest_pharm.id)%></h3>
+<h3>Pharmacy with the least Doctors: <%= link_to "#{@slowest_pharm.name}", pharmacy_path(@slowest_pharm.id)%></h3>
 
-<h3><%="Specialty with the highest average rating: #{@spec_highest.name}"%></h3>
+<h3>Specialty with the highest average rating: <%=link_to "#{@spec_highest.name}", specialty_path(@spec_highest.id)%></h3>
 
-<h3><%="Specialty with the highest average cost: #{@spec_high_cost.name}"%></h3>
+<h3>Specialty with the highest average cost: <%= link_to "#{@spec_high_cost.name}", specialty_path(@spec_high_cost.id)%></h3>
 
