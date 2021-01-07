@@ -42,15 +42,7 @@ class Specialty < ApplicationRecord
         self.doctors.max_by { |d| d.cost_s }
     end
 
-    def cheapest
-        self.doctors.min_by { |d| d.cost_s }
-    end
-
-
-    def expense
-        self.doctors.max_by { |d| d.cost_s }
-    end
-
+    
     def cost_range
         "$#{self.cheapest.cost_s} - $#{self.expense.cost_s}"
     end

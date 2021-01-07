@@ -6,4 +6,6 @@
 <p>Specialist Count: <%= s.doctors.count %></p>
 <p>Average Cost:  <%="$#{s.avg_cost}"%></p>
 Average Rating for Doctors: <%="#{s.ave_rating}"%>
-<%end%>
+<%end%><br>
+
+<%=link_to "Back to Homepage", patients_path %>

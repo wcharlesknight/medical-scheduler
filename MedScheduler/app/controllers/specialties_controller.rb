@@ -8,7 +8,6 @@ class SpecialtiesController < ApplicationController
 
     def show
         @specialty = Specialty.find(params[:id])
-        #@doctor = Doctor.find(@specialty.doctor_id)
     end
 
 end
