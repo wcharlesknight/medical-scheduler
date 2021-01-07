@@ -43015,3 +43015,497 @@ Processing by SpecialtiesController#show as HTML
 Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.4ms | Allocations: 7223)
 
 
+Started GET "/specialties/10" for ::1 at 2021-01-07 11:31:47 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SpecialtiesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSpecialty Load (0.3ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/specialties_controller.rb:10:in `show'
+  Rendering specialties/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/views/specialties/show.html.erb:3
+  Rendered specialties/show.html.erb within layouts/application (Duration: 22.7ms | Allocations: 14175)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 46.8ms | ActiveRecord: 2.5ms | Allocations: 32752)
+
+
+Started GET "/doctors/1" for ::1 at 2021-01-07 11:31:52 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctor Load (0.4ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:59:in `current_doctor'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:4
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/views/doctors/show.html.erb:19
+  Rendered doctors/show.html.erb within layouts/application (Duration: 40.5ms | Allocations: 14869)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 52.5ms | ActiveRecord: 3.1ms | Allocations: 20918)
+
+
+Started GET "/doctors/9" for ::1 at 2021-01-07 11:31:55 -0800
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/doctors_controller.rb:59:in `current_doctor'
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:2
+  [1m[36mPharmacy Load (0.2ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:3
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/doctors/show.html.erb:4
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 9]]
+  ↳ app/views/doctors/show.html.erb:19
+  Rendered doctors/show.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3268)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 0.8ms | Allocations: 8660)
+
+
+Started GET "/specialties/2" for ::1 at 2021-01-07 11:31:57 -0800
+Processing by SpecialtiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/specialties_controller.rb:10:in `show'
+  Rendering specialties/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/views/specialties/show.html.erb:3
+  Rendered specialties/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 998)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 8.0ms | ActiveRecord: 0.4ms | Allocations: 6381)
+
+
+Started GET "/pharmacies/2" for ::1 at 2021-01-07 11:35:32 -0800
+Processing by PharmaciesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies" WHERE "pharmacies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pharmacies_controller.rb:16:in `show'
+  Rendering pharmacies/show.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/views/pharmacies/show.html.erb:4
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mHospital Load (0.1ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties" WHERE "specialties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:6
+  [1m[36mCACHE Hospital Load (0.0ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pharmacies/show.html.erb:7
+  Rendered pharmacies/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 4561)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.6ms | Allocations: 10500)
+
+
+Started GET "/patients/1" for ::1 at 2021-01-07 11:37:56 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:15:in `show'
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:8
+  Rendered patients/show.html.erb within layouts/application (Duration: 7.7ms | Allocations: 5974)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 28.7ms | ActiveRecord: 2.8ms | Allocations: 26289)
+
+
+Started GET "/patients" for ::1 at 2021-01-07 11:37:57 -0800
+Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/models/patient.rb:8:in `max_by'
+  [1m[36mCACHE Patient Load (0.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/models/patient.rb:12:in `min_by'
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mHospital Load (0.2ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals"[0m
+  ↳ app/views/patients/index.html.erb:31
+  [1m[36mSpecialty Load (0.2ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  ↳ app/views/patients/index.html.erb:36
+  [1m[36mPharmacy Load (0.4ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/views/patients/index.html.erb:41
+  Rendered patients/index.html.erb within layouts/application (Duration: 33.5ms | Allocations: 11660)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 42.9ms | ActiveRecord: 3.5ms | Allocations: 25639)
+
+
+Started GET "/analytics" for ::1 at 2021-01-07 11:38:15 -0800
+Processing by DoctorsController#analytics as HTML
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/models/doctor.rb:38:in `max_by'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/models/doctor.rb:42:in `max_by'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 2]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 4]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 5]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 6]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 7]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 8]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 9]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 10]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 11]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 12]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 13]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 14]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 15]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 16]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 17]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 18]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 19]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 20]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 21]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 22]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 23]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 24]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 25]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 26]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 27]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 28]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 29]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 30]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/models/pharmacy.rb:6:in `max_by'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[36mCACHE Pharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/models/pharmacy.rb:10:in `min_by'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  ↳ app/models/specialty.rb:19:in `max_by'
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  ↳ app/models/specialty.rb:34:in `max_by'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  Rendering doctors/analytics.html.erb within layouts/application
+  Rendered doctors/analytics.html.erb within layouts/application (Duration: 1.3ms | Allocations: 386)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 150ms (Views: 13.2ms | ActiveRecord: 9.7ms | Allocations: 82795)
+
+
+Started GET "/analytics" for ::1 at 2021-01-07 11:38:23 -0800
+Processing by DoctorsController#analytics as HTML
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/models/doctor.rb:38:in `max_by'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/models/doctor.rb:42:in `max_by'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 2]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 3]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 4]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 5]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 6]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 7]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 8]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 9]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 10]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 11]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 12]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 13]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 14]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 15]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 16]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 17]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 18]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 19]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 20]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 21]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 22]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 23]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 24]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 25]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 26]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 27]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 28]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 29]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients" INNER JOIN "appointments" ON "patients"."id" = "appointments"."patient_id" WHERE "appointments"."doctor_id" = ?[0m  [["doctor_id", 30]]
+  ↳ app/models/doctor.rb:42:in `block in busiest_doctor'
+  [1m[36mPharmacy Load (0.1ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/models/pharmacy.rb:6:in `max_by'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/models/pharmacy.rb:6:in `block in busiest_pharmacy'
+  [1m[36mCACHE Pharmacy Load (0.0ms)[0m  [1m[34mSELECT "pharmacies".* FROM "pharmacies"[0m
+  ↳ app/models/pharmacy.rb:10:in `min_by'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 1]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 2]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 3]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 4]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."pharmacy_id" = ?[0m  [["pharmacy_id", 5]]
+  ↳ app/models/pharmacy.rb:10:in `block in slowest_pharmacy'
+  [1m[36mSpecialty Load (0.1ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  ↳ app/models/specialty.rb:19:in `max_by'
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:7:in `map'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:9:in `ave_rating'
+  [1m[36mCACHE Specialty Load (0.0ms)[0m  [1m[34mSELECT "specialties".* FROM "specialties"[0m
+  ↳ app/models/specialty.rb:34:in `max_by'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 1]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 2]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 3]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 4]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 5]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 6]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 7]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 8]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 9]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  [1m[36mCACHE Doctor Load (0.0ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:23:in `map'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors" WHERE "doctors"."specialty_id" = ?[0m  [["specialty_id", 10]]
+  ↳ app/models/specialty.rb:25:in `avg_cost'
+  Rendering doctors/analytics.html.erb within layouts/application
+  Rendered doctors/analytics.html.erb within layouts/application (Duration: 0.4ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 126ms (Views: 6.3ms | ActiveRecord: 11.6ms | Allocations: 71517)
+
+
+Started GET "/appointments/new" for ::1 at 2021-01-07 11:40:07 -0800
+Processing by AppointmentsController#new as HTML
+  Rendering appointments/new.html.erb within layouts/application
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  ↳ app/views/appointments/new.html.erb:10
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/appointments/new.html.erb:11
+  [1m[36mDatetime Load (0.7ms)[0m  [1m[34mSELECT "datetimes".* FROM "datetimes"[0m
+  ↳ app/views/appointments/new.html.erb:12
+  Rendered appointments/new.html.erb within layouts/application (Duration: 215.1ms | Allocations: 217373)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 237ms (Views: 224.8ms | ActiveRecord: 2.8ms | Allocations: 228178)
+
+
