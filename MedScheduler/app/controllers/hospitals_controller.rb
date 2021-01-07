@@ -6,6 +6,8 @@ class HospitalsController < ApplicationController
         @patients = Patient.all
         @busiest = Hospital.busiest_hospital
         @slowest = Hospital.slowest_hospital
+        @highest = Hospital.highest_rated_hospital
+        # @average_rating = Hospital.average_rating_hospital
     end
 
     def show

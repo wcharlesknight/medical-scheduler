@@ -10,5 +10,4 @@ class Pharmacy < ApplicationRecord
         @slowest = Pharmacy.all.min_by{|p|p.doctors.count}
     end
 
-
 end

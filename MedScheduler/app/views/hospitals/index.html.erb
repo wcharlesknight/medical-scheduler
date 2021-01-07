@@ -1,6 +1,7 @@
 <h1>Hospitals:</h1>
 <h2>Current Busiest Hospital: <%= @busiest.name %></h2>
 <h2>Current Slowest Hospital: <%= @slowest.name %></h2>
+<h2>Highest Rated Doctors: <%= @highest.name %></h2>
 <% @hospitals.each do |d| %>
 <h2><%= link_to d.name, hospital_path(d.id)%></h2><br><br><br>
 <% end %>

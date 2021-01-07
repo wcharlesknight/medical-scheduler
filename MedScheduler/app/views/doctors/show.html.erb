@@ -1,8 +1,8 @@
-<h1>Name: <%= @doctor.name %></h1>
-<h3>Specialty: <%= @doctor.specialty.name %></h3>
-<h3>Pharmacy: <%= @doctor.pharmacy.name%></h3>
-<%=@doctor.cost_s%>
-
+<h1 class="text-center"><%= @doctor.name %></h1>
+<h3>Specialty: <%= link_to @doctor.specialty.name, @doctor.specialty %></h3>
+<h3>Pharmacy: <%= link_to @doctor.pharmacy.name, @doctor.pharmacy%></h3>
+<h3>Hospital: <%= link_to @doctor.hospital.name, @doctor.hospital%></h3>
+<b>Average Cost per Visit: <%= "$#{@doctor.cost_s}" %></b><br><br>
 
 <%= form_tag doctor_path, :method => "patch" do %>
 <%= label_tag(:rating, "Leave a rating:") %> 
@@ -18,3 +18,5 @@
 <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
 <%= "Date: #{Datetime.find(d.datetime_id).date}" %><br>
 <% end %>
+
+

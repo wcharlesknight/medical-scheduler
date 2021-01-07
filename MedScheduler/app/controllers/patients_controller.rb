@@ -5,8 +5,12 @@ class PatientsController < ApplicationController
         @doctors = Doctor.all
         @oldest = Patient.oldest
         @youngest = Patient.youngest
+        @hospitals = Hospital.all
+        @specialties = Specialty.all
+        @pharmacies = Pharmacy.all
+        @appointments = Appointment.all
     end
-    
+
     def show
         @patient = Patient.find(params[:id])
     end

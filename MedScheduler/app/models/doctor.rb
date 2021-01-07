@@ -8,31 +8,32 @@ class Doctor < ApplicationRecord
   # validates :datetime_id, uniqueness: { scope: :appointment }
   accepts_nested_attributes_for :datetimes, :appointments
   
-     def cost_s
-        case self.specialty.name
-        when "Cardiologist"
-          self.cost += 2000
-        when "Nephrologist"
-          self.cost += 1700
-        when "Pulmonologist"
-            self.cost += 1300
-        when "Neurologist"
-            self.cost += 1000
-        when "Emergency Medicine"
-          self.cost += 800
-        when "Opthomologist"
-          self.cost += 700 
-        when "Gyenocology"
-          self.cost += 600
-        when "Gastroenterologist"
-          self.cost += 400
-        when "Infectious Disease"
-          self.cost += 100
-        when "Primary Care Doctor"
-          self.cost += 10  
-        end
-      end
 
+  def cost_s
+    case self.specialty.name
+    when "Cardiologist"
+      self.cost += 2000
+    when "Nephrologist"
+      self.cost += 1700
+    when "Pulmonologist"
+        self.cost += 1300
+    when "Neurologist"
+        self.cost += 1000
+    when "Emergency Medicine"
+      self.cost += 800
+    when "Opthomologist"
+      self.cost += 700 
+    when "Gyenocology"
+      self.cost += 600
+    when "Gastroenterologist"
+      self.cost += 400
+    when "Infectious Disease"
+      self.cost += 100
+    when "Primary Care Doctor"
+      self.cost += 10  
+    end
+  end
+  
   def self.highest_rated
     Doctor.all.max_by(&:rating)
   end
@@ -48,7 +49,6 @@ class Doctor < ApplicationRecord
   def self.cheapest_doctor
     Doctor.all.min_by{|d| d.cost_s}
   end
-
 
 
 end
