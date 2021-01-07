@@ -21,6 +21,7 @@ class Hospital < ApplicationRecord
         avg
     end
 
+    
     def self.highest_rated_hospital
         self.all.max_by {|d| d.average_rating_hospital }
     end

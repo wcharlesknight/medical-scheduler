@@ -19,10 +19,10 @@ class AppointmentsController < ApplicationController
         @appointment = Appointment.create(appt_params) 
         @doctor = Doctor.find(@appointment.doctor_id)
         if @appointment.valid?
-        redirect_to doctor_path(@appointment.doctor_id)
+            redirect_to doctor_path(@appointment.doctor_id)
         else
             flash[:errors] = @appointment.errors.full_messages
-            redirect_to new_appointment_path
+            redirect_to new_appointment_path 
         end
     end
 

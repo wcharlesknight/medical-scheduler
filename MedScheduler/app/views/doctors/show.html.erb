@@ -3,6 +3,9 @@
 <h3>Pharmacy: <%= link_to @doctor.pharmacy.name, @doctor.pharmacy%></h3>
 <h3>Hospital: <%= link_to @doctor.hospital.name, @doctor.hospital%></h3>
 
+<p>Cost: <%=@doctor.cost_s%></p>
+
+
 <%= form_tag doctor_path, :method => "patch" do %>
 <%= label_tag(:rating, "Leave a rating:") %> 
 <%= text_field_tag :rating %>

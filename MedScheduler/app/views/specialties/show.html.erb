@@ -2,4 +2,10 @@
 
 <% @specialty.doctors.each do |d| %>
 <h2><%= link_to d.name, doctor_path(d) %></h2>
+<b>Avg Cost per Visit: <%= "$#{d.cost_s}" %><br>
+<b>Rating: <%= d.rating %></b><br>
+<%=link_to "Schedule an appointment with #{d.name}?", new_appointment_path%>
 <% end %>
+
+
+<p><%=link_to "Back to Specialties", specialties_path%></p>

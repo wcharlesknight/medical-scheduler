@@ -2,6 +2,7 @@ class Specialty < ApplicationRecord
     has_many :doctors
     has_many :patients, through: :doctors
 
+
     def ave_rating
         sum = self.doctors.map {|d| d.rating}.sum
         if sum != nil && sum != 0 
@@ -13,6 +14,7 @@ class Specialty < ApplicationRecord
         avg
     end
 
+    
     def self.highest_rating
         self.all.max_by {|d| d.ave_rating }
     end
@@ -39,7 +41,16 @@ class Specialty < ApplicationRecord
     def expense
         self.doctors.max_by { |d| d.cost_s }
     end
-    
+
+    def cheapest
+        self.doctors.min_by { |d| d.cost_s }
+    end
+
+
+    def expense
+        self.doctors.max_by { |d| d.cost_s }
+    end
+
     def cost_range
         "$#{self.cheapest.cost_s} - $#{self.expense.cost_s}"
     end
