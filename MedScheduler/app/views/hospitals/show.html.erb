@@ -9,6 +9,7 @@ a:link {
 
 <h3>Doctors who work here:</h3>
 <% @hospital.doctors.each do |d| %>
-<%= link_to d.name, doctor_path(d), class: "a:link" %><br>
-<%= d.hospital.name %><br><br>
+<%= link_to d.name, doctor_path(d) %><br>
+<%= d.specialty.name%><br><br>
+
 <% end %>

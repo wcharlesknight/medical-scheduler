@@ -3,7 +3,7 @@
 <h3>Pharmacy: <%= link_to @doctor.pharmacy.name, @doctor.pharmacy%></h3>
 <h3>Hospital: <%= link_to @doctor.hospital.name, @doctor.hospital%></h3>
 
-<p>Cost: <%=@doctor.cost_s%></p>
+<p>Cost: <%="$#{@doctor.cost_s}"%></p>
 
 
 <%= form_tag doctor_path, :method => "patch" do %>
@@ -12,11 +12,17 @@
 <%= submit_tag("Submit", :name => nil) %><br>
 <%= "Must be a number 1-10" %>
 <%end%>
+<%= flash[:notrating] %>
 
-
-<h3>Rating: <%= @doctor.rating %></h3>
+<h3>Rating: <%= @doctor.rating %></h3><br><br><br><br><br><br><br><br><br>
 <h4><%= "Appointments:" %></h4>
 <% @doctor.appointments.each do |d| %>
 <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
 <%= "Date: #{Datetime.find(d.datetime_id).date}" %><br>
+<%= "Patient's Symptoms: #{d.symptoms}" %><br>
 <% end %>
+
+<%= link_to "Back to Homepage", patients_path %>
+
+
+

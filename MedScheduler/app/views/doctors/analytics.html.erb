@@ -5,5 +5,7 @@
 
 <h3>Specialty with the highest average rating: <%=link_to "#{@spec_highest.name}", specialty_path(@spec_highest.id)%></h3>
 
-<h3>Specialty with the highest average cost: <%= link_to "#{@spec_high_cost.name}", specialty_path(@spec_high_cost.id)%></h3>
+<h3>Specialty with the highest average cost: <%= link_to "#{@spec_high_cost.name}", specialty_path(@spec_high_cost.id)%></h3><br><br>
 
+
+<h3>Back to <%= link_to "Homepage", patients_path %></h3>
