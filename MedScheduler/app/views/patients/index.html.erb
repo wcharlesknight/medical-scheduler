@@ -6,9 +6,14 @@ header {
   font-size: 35px;
   color: white;
 }
+
 body {
   background-image: url(<%= asset_path 'healthcare.jpg' %>);
   margin: auto;
+}
+
+.age {
+    color: black;
 }
  
 </style> 
@@ -18,10 +23,10 @@ body {
 <h2>Our Hospitals, Specialties, and Pharmacies are listed below.</h2>
 <h2>To create an appointment with one of our providers, click the link below:</h2><br>
 </header>
-<h3><%= link_to "Create New Appointment", new_appointment_path%></h3><br><br>
-
-<h3>Our Patients Range in Age From: <%= @youngest.age%> to <%= @oldest.age%></h3>
-
+<br>
+<h3><%= link_to "Create New Appointment", new_appointment_path%></h3>
+<h3 class="age" >Our Patients Range in Age From: <%= @youngest.age%> to <%= @oldest.age%></h3>
+<br><br><br><br><br><br><br><br>
 <h2>Hospitals Where We Provide Care: </h2>
 <% @hospitals.each do |h| %>
 <h3><%= link_to h.name, h %><br></h3>

@@ -33,19 +33,19 @@ class Doctor < ApplicationRecord
       self.cost += 10  
     end
   end
-  
+
   def self.highest_rated
-    Doctor.all.max_by(&:rating)
+  Doctor.all.max_by(&:rating)
   end
 
   def self.busiest_doctor
-    Doctor.all.max_by {|d| d.patients.count}
+  Doctor.all.max_by {|d| d.patients.count}
   end
 
   def self.expensive_doctor
-    Doctor.all.max_by{|d| d.cost_s}
+  Doctor.all.max_by{|d| d.cost_s}
   end
-
+  
   def self.cheapest_doctor
     Doctor.all.min_by{|d| d.cost_s}
   end

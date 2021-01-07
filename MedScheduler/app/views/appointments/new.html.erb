@@ -5,13 +5,17 @@
 <% end %>
 </div>
 
-<div class="text-center"><%= form_with model: @appointments do |f| %>
+<div><%= form_with model: @appointments do |f| %>
     <div class="d-flex justify-content-center">
     <div class="p-4"><%= f.collection_select :doctor_id, @doctors, :id, :name %></div>
     <div class="p-4"><%= f.collection_select :patient_id, @patients, :id, :name %></div>
     <div class="p-4"><%= f.collection_select :datetime_id, @datetimes, :id, :date%></div>
-
-    <div class="p-4 buttons blob-btn"><%= f.submit %></div>
+    </div>
+    <div class><%= f.label "Please briefly describe your symptoms:" %></div>
+    <div><%= f.text_area :symptoms %> </div>
+    <div><%= f.submit %></div>
 <% end %>
+
+<%= link_to "Check out more doctor information here", analytics_url %>
 
 </div>
