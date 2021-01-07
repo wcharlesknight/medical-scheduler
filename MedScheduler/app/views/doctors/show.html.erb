@@ -10,7 +10,7 @@
 <%= submit_tag("Submit", :name => nil) %><br>
 <%= "Must be a number 1-10" %>
 <%end%>
-
+<%= flash[:notrating] %>
 
 <h3>Rating: <%= @doctor.rating %></h3>
 <h4><%= "Appointments:" %></h4>
@@ -18,5 +18,8 @@
 <%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
 <%= "Date: #{Datetime.find(d.datetime_id).date}" %><br>
 <% end %>
+
+<%= link_to "Back to Homepage", patients_path %>
+
 
 

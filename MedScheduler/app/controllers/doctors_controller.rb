@@ -30,10 +30,15 @@ class DoctorsController < ApplicationController
     end
 
     def update
-        @ratings = @doctor.rating.to_s.split(' ') << params[:rating].to_f
-        @doctor.rating = @ratings.sum {|r| r.to_f } / @ratings.length
-        @doctor.save
-        redirect_to @doctor
+        if params[:rating].to_f >= 1 && params[:rating].to_f <= 10 
+            @ratings = @doctor.rating.to_s.split(' ') << params[:rating].to_f
+            @doctor.rating = @ratings.sum {|r| r.to_f } / @ratings.length
+            @doctor.save
+            redirect_to @doctor
+        else
+            flash[:notrating] = "Must be between 1 and 10"
+            redirect_to @doctor
+        end 
     end
 
     def edit
