@@ -26,6 +26,7 @@ body {
 <br>
 <h3><%= link_to "Create New Appointment", new_appointment_path%></h3>
 <h3 class="age" >Our Patients Range in Age From: <%= @youngest.age%> to <%= @oldest.age%></h3>
+<h3><%= link_to "Analytics page of our group", analytics_path%></h3>
 <br><br><br><br><br><br><br><br>
 <h2>Hospitals Where We Provide Care: </h2>
 <% @hospitals.each do |h| %>
