@@ -15,8 +15,8 @@
 
 <p>-If you're unsure which doctor to schedule an appointment with, the analytics link on the homepage may help. On the analytics page you will find the highest rated physicians, most expensive specialty, and busiest / slowest pharmacies and hospitals to receive care at. </p>
 
-<p>Built With: <br>
-Ruby 2.6.1 <br>
+<h4>Built With:</h4>
+<p>Ruby 2.6.1 <br>
 Rails 6.0.3.4 <br>
 Faker gem<br>
 SQLite 3 1.4<br>
