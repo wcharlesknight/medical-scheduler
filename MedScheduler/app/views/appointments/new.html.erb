@@ -13,9 +13,10 @@
     </div>
     <div class><%= f.label "Please briefly describe your symptoms:" %></div>
     <div><%= f.text_area :symptoms %> </div>
-    <div><%= f.submit %></div>
+    <div class="btn"><%= f.submit %></div>
 <% end %>
 
 <%= link_to "Check out more doctor information here", analytics_url %>
 
+<p>Back to Homepage: <%= link_to "Back to Homepage:", patients_path%></p>
 </div>

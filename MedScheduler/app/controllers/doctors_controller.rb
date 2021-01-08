@@ -14,7 +14,6 @@ class DoctorsController < ApplicationController
                 @rating
             else
                 flash[:error] = "Not a doctor or valid rating"
-                #redirect_to doctors_path
             end
         end
     end
@@ -50,12 +49,8 @@ class DoctorsController < ApplicationController
         @busiest = Doctor.busiest_doctor
         @busiest_pharm = Pharmacy.busiest_pharmacy
         @slowest_pharm = Pharmacy.slowest_pharmacy
-        #@avg_rating_spec = Specialty.ave_rating
         @spec_highest = Specialty.highest_rating
-        #@avg_cost_spec = Specialty.avg_cost
         @spec_high_cost = Specialty.highest_cost
-        #@cheapest_dr_spec = Specialty.cheapest
-        #@expensive_doc_spec = Specialty.expense
     end
 
     private
