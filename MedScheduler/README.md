@@ -23,6 +23,6 @@ SQLite 3 1.4<br>
 sass-rails for scss stylesheet</p>
 
 
-<h4>-This application was built by:</h4>
+<h4>This application was built by:</h4>
 <p>-Charlie Knight - WiliamCHKnight@gmail.com</p>
 <p>-Dustin Rothschild - Drothschild89@gmail.com</p>
