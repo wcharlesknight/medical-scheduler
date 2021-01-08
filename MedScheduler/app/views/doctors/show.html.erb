@@ -17,7 +17,7 @@
 <h3>Rating: <%= @doctor.rating %></h3><br><br><br><br><br><br><br><br><br>
 <h4><%= "Appointments:" %></h4>
 <% @doctor.appointments.each do |d| %>
-<%= "Patient Name: #{Patient.find(d.patient_id).name}" %><br>
+<%= link_to "Patient Name: #{Patient.find(d.patient_id).name}", patient_path(d.patient_id) %><br>
 <%= "Date: #{Datetime.find(d.datetime_id).date}" %><br>
 <%= "Patient's Symptoms: #{d.symptoms}" %><br>
 <% end %>

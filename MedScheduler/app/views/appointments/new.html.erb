@@ -1,11 +1,10 @@
-<div class="text-center"><% if flash[:errors] %>
-<% flash[:errors].each do |error| %>
-<p><%= error %></p>
-<% end %>
-<% end %>
-</div>
 
-<div><%= form_with model: @appointments do |f| %>
+
+
+
+
+
+<%= form_with model: @appointments, html: {class: "mt-4"} do |f| %>
     <div class="d-flex justify-content-center">
     <div class="p-4"><%= f.collection_select :doctor_id, @doctors, :id, :name %></div>
     <div class="p-4"><%= f.collection_select :patient_id, @patients, :id, :name %></div>
@@ -13,9 +12,19 @@
     </div>
     <div class><%= f.label "Please briefly describe your symptoms:" %></div>
     <div><%= f.text_area :symptoms %> </div>
-    <div class="btn"><%= f.submit %></div>
-<% end %>
+    <h4><%= flash[:errors] %></h4>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-4">
+    <div> <%=f.submit "Schedule Appointment", class: "btn btn-outline-primary btn-lg btn-block"%></div>
 
+<% end %>
 <%= link_to "Check out more doctor information here", analytics_url %>
 
+</div>
+
+</div>
+
+  
+</div>
 </div>

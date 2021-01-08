@@ -21,7 +21,7 @@ class AppointmentsController < ApplicationController
         if @appointment.valid?
             redirect_to doctor_path(@appointment.doctor_id)
         else
-            flash[:errors] = @appointment.errors.full_messages
+            flash[:errors] = "That time is taken"
             redirect_to new_appointment_path 
         end
     end
