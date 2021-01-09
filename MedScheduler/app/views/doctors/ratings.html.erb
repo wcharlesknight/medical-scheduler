@@ -1,0 +1,16 @@
+<br><br>
+<%= form_tag ratings_path, :method => "ratings" do %>
+    <%= label_tag(:list, "Type in rating and see every doctor at or above") %> 
+    <%= text_field_tag :list %>
+    <%= submit_tag("Submit", :name => nil) %><br>
+    <%= "Must be a number 1-10" %>
+    <%end%>
+
+
+<%@sorted.each do |d| %>
+    <%=link_to d.name, doctor_path(d.id)%><br>
+    <%=d.specialty.name%><br>
+    <%="Avg Cost: $#{d.cost_s}"%><br>
+    <%="Rating: #{d.rating}"%><br>
+<%end%><br>
+<%=link_to "Back to Homepage", patients_path%>

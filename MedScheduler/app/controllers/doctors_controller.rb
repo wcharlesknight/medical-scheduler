@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
     before_action :current_doctor,  only: [:edit, :show, :update]
+    skip_before_action :verify_authenticity_token, only: [:ratings]
     
     def index
         @doctors = Doctor.all
@@ -57,6 +58,20 @@ class DoctorsController < ApplicationController
         #@cheapest_dr_spec = Specialty.cheapest
         #@expensive_doc_spec = Specialty.expense
     end
+
+    def ratings
+        @ratings = []
+        @doctors = Doctor.all
+        if params[:list]
+            @doctors.each do |d|
+                if d.rating >= params[:list].to_i
+                    @ratings << d
+                end
+            end
+        end
+        @sorted = @ratings.sort_by { |d| -d.rating}
+    end
+    
 
     private
 

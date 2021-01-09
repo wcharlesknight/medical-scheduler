@@ -7,7 +7,7 @@
 <h3>Pharmacy with the least Doctors: <%= link_to "#{@slowest_pharm.name}", pharmacy_path(@slowest_pharm.id)%></h3>
 <h4>Number of doctors: <%=@slowest_pharm.doctors.count%></h4>
 <h3>Specialty with the highest average rating: <%=link_to "#{@spec_highest.name}", specialty_path(@spec_highest.id)%></h3>
-<h4>Rating: <%=@spec_highest.ave_rating%></h4><br><br><br><br>
+<h4>Rating: <%=@spec_highest.ave_rating%></h4>
 <h3>Specialty with the highest average cost: <%= link_to "#{@spec_high_cost.name}", specialty_path(@spec_high_cost.id)%></h3>
 <h4>Cost: <%="$#{@spec_high_cost.avg_cost}"%></h4>
 <%=link_to "Back to Homepage", patients_path%>

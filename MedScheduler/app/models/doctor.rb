@@ -50,5 +50,7 @@ class Doctor < ApplicationRecord
     Doctor.all.min_by{|d| d.cost_s}
   end
 
+  
+
 
 end
